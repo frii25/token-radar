@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — which pre-token protocol is worth farming next</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="pulse" aria-hidden="true"></span>
+    <h1>Token Launch Radar</h1>
+  </div>
+  <p class="tagline">Protocols that record no token yet, ranked by what a token would be worth if their record stayed as it is — and how to farm each one.</p>
+  <div class="stats" id="stats"></div>
+</header>
+
+<section class="controls" aria-label="Filter and sort">
+  <input id="search" type="search" placeholder="Search a protocol…" aria-label="Search protocols">
+  <select id="status" aria-label="Token status">
+    <option value="all">All protocols</option>
+    <option value="pre">Pre-token only</option>
+    <option value="tok">Token already trades</option>
+  </select>
+  <select id="category" aria-label="Category"><option value="all">All categories</option></select>
+  <select id="sort" aria-label="Sort by">
+    <option value="rank">Sort: rank</option>
+    <option value="value">Sort: implied value</option>
+    <option value="tvl">Sort: TVL</option>
+    <option value="growth">Sort: 7-day growth</option>
+  </select>
+</section>
+
+<main class="layout">
+  <div class="board-wrap">
+    <table class="board" id="board">
+      <thead><tr>
+        <th data-sort="rank">#</th><th data-sort="name">Protocol</th><th>Category</th>
+        <th>Chains</th><th data-sort="tvl">TVL</th><th data-sort="growth">7d</th>
+        <th data-sort="value">Implied value</th><th>Status</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="count" id="count"></p>
+  </div>
+  <aside class="detail" id="detail" aria-live="polite"></aside>
+</main>
+
+<footer>
+  <p>Implied values are this radar's own claim, computed from the snapshot's TVL, 7-day growth, age and chain breadth — never a prediction that a token will launch. “Records no token” means the snapshot's record carries none; a protocol may still have one. Data: DefiLlama protocols snapshot, <span id="asof"></span>. Floor for the watchlist: $50M TVL.</p>
+</footer>
+
+<script src="rows.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
